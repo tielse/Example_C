@@ -1,0 +1,44 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+
+using namespace std;
+
+int main()
+{
+	char s[101];
+	cin>>s;
+	char ss[101];
+	strcpy(ss,s);
+	ss[strlen(s)]='\0';
+	if(strcmp(s,strupr(ss))==0)
+	{
+		cout<<strlwr(s);
+	}
+	else
+	{
+		strlwr(ss);
+		int dem=0;
+		for(int i=0;i<strlen(s);i++)
+		{
+			if(s[i]==ss[i])
+			{
+				dem=i;
+			}
+		}
+		if(dem>0)
+		{
+			cout<<s;
+		}
+		else
+		{
+			strlwr(s);
+			int k= int (s[0]) - 32;
+			cout<<char(k);
+			for(int i=1;i<strlen(s);i++)
+			{
+				cout<<s[i];
+			}	
+		}
+	}
+}
